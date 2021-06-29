@@ -1,3 +1,5 @@
+// import axios from "axios";
+// import * as Chart  from "chart.js";
 // utils
 function $(selector: string) {
   return document.querySelector(selector);
@@ -177,9 +179,13 @@ async function setupData() {
 }
 
 function renderChart(data: any, labels: any) {
-  const ctx = $('#lineChart').getContext('2d');
-  Chart.defaults.global.defaultFontColor = '#f5eaea';
-  Chart.defaults.global.defaultFontFamily = 'Exo 2';
+  const canvasEl = <HTMLCanvasElement> $('#lineChart');
+  const ctx = canvasEl.getContext('2d');
+ 
+  //Chart.defaults.global.defaultFontColor = '#f5eaea';
+  Chart.defaults.color = '#f5eaea';
+  //Chart.defaults.global.defaultFontFamily = 'Exo 2';
+  Chart.defaults.font.family = 'Exo 2';
   new Chart(ctx, {
     type: 'line',
     data: {
