@@ -1,4 +1,4 @@
-interface Country {
+export interface Country {
   Country: string;
   CountryCode: string;
   Date: string;
@@ -12,6 +12,7 @@ interface Country {
   TotalDeaths: number;
   TotalRecovered: number;
 }
+
 interface Global {
   Date: string;
   NewConfirmed: number;
@@ -27,4 +28,19 @@ export interface CovidSummaryResponse {
   Global: Global;
   Message: string;
 }
+
+export interface CountrySummaryInfo {
+  Cases: number;
+  City: string;
+  CityCode: string;
+  Country: string;
+  CountryCode:string;
+  Date: string;
+  Lat: string;
+  Lon: string;
+  Province: string;
+  Status: string;
+}
+
+export type CountrySummaryResponse = CountrySummaryInfo[];
 
