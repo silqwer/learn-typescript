@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import * as Chart from "chart.js";
+import Chart from "chart.js";
 import { CovidSummaryResponse, CountrySummaryResponse, Country, CountrySummaryInfo } from './covid/index';
 // utils
 function $(selector: string) {
@@ -181,14 +181,14 @@ async function setupData() {
   setLastUpdatedTimestamp(data);
 }
 
-function renderChart(data: any, labels: any) {
-  const canvasEl = <HTMLCanvasElement> $('#lineChart');
+function renderChart(data: number[], labels: string[]) {
+  const canvasEl = $('#lineChart') as HTMLCanvasElement;
   const ctx = canvasEl.getContext('2d');
  
-  //Chart.defaults.global.defaultFontColor = '#f5eaea';
-  Chart.defaults.color = '#f5eaea';
-  //Chart.defaults.global.defaultFontFamily = 'Exo 2';
-  Chart.defaults.font.family = 'Exo 2';
+  Chart.defaults.global.defaultFontColor = '#f5eaea';
+  //Chart.defaults.color = '#f5eaea';
+  Chart.defaults.global.defaultFontFamily = 'Exo 2';
+  //Chart.defaults.font.family = 'Exo 2';
   new Chart(ctx, {
     type: 'line',
     data: {
